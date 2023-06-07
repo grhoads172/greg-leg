@@ -36,3 +36,5 @@ C:\Users\rhoadg\Documents\GitHub\greg-leg\Tests\the_tester\obj\Debug\net6.0-wind
 C:\Users\rhoadg\Documents\GitHub\greg-leg\Tests\the_tester\obj\Debug\net6.0-windows\the_tester.pdb
 C:\Users\rhoadg\Documents\GitHub\greg-leg\Tests\the_tester\obj\Debug\net6.0-windows\the_tester.genruntimeconfig.cache
 C:\Users\rhoadg\Documents\GitHub\greg-leg\Tests\the_tester\obj\Debug\net6.0-windows\ref\the_tester.dll
+C:\Users\rhoadg\Documents\GitHub\greg-leg\Tests\the_tester\bin\Debug\net6.0-windows\Serilog.dll
+C:\Users\rhoadg\Documents\GitHub\greg-leg\Tests\the_tester\obj\Debug\net6.0-windows\the_tester.csproj.CopyComplete
