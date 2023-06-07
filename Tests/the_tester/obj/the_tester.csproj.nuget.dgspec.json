@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rhoadg\\Documents\\Tests'\\the_tester\\the_tester.csproj": {}
+    "C:\\Users\\rhoadg\\Documents\\GitHub\\greg-leg\\Tests\\the_tester\\the_tester.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rhoadg\\Documents\\Tests'\\the_tester\\the_tester.csproj": {
+    "C:\\Users\\rhoadg\\Documents\\GitHub\\greg-leg\\Tests\\the_tester\\the_tester.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rhoadg\\Documents\\Tests'\\the_tester\\the_tester.csproj",
+        "projectUniqueName": "C:\\Users\\rhoadg\\Documents\\GitHub\\greg-leg\\Tests\\the_tester\\the_tester.csproj",
         "projectName": "the_tester",
-        "projectPath": "C:\\Users\\rhoadg\\Documents\\Tests'\\the_tester\\the_tester.csproj",
+        "projectPath": "C:\\Users\\rhoadg\\Documents\\GitHub\\greg-leg\\Tests\\the_tester\\the_tester.csproj",
         "packagesPath": "C:\\Users\\rhoadg\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rhoadg\\Documents\\Tests'\\the_tester\\obj\\",
+        "outputPath": "C:\\Users\\rhoadg\\Documents\\GitHub\\greg-leg\\Tests\\the_tester\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
