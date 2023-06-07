@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "CA0NZKH65yAvZg0kOgURl39N8nJCzP5WpkGjabRffQSDgOSO77xNNtFUwkqy78/YsXAlcXr6fSzCeVUPKdgHAA==",
+  "dgSpecHash": "p476jqH/HYjtE+6QcaesK6sGC4JwXEQXhs1MUbnSCUcANDDUd70vUZ5ncaIBLP7fCtng7Ollj3ND7eWX0Asgvg==",
   "success": true,
   "projectFilePath": "C:\\Users\\rhoadg\\Documents\\GitHub\\greg-leg\\Tests\\the_tester\\the_tester.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\rhoadg\\.nuget\\packages\\serilog\\2.12.0\\serilog.2.12.0.nupkg.sha512"
+  ],
   "logs": []
 }
