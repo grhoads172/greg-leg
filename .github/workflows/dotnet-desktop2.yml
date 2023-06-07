@@ -1,0 +1,40 @@
+name: Build and Package Installer
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Inno Setup
+        run: |
+          # Download and install Inno Setup
+          # Add the necessary environment variables or update the system PATH
+          # Configure any other prerequisites or dependencies
+
+      - name: Build .NET Application
+        run: |
+          # Build your .NET application using your preferred build tool (e.g., dotnet CLI, MSBuild)
+
+      - name: Prepare Files for Installer
+        run: |
+          # Copy the necessary files for the installer into a staging directory
+          # This may include your compiled .NET application, dependencies, and additional resources
+
+      - name: Create Inno Setup Installer
+        run: |
+          # Run the Inno Setup compiler (iscc.exe) with your Inno Setup script (.iss file)
+          # Provide the necessary command-line arguments to specify the input script and output installer path
+          # For example: iscc.exe /O"output_directory" "path_to_your_script.iss"
+
+      - name: Upload Installer Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: installer
+          path: path_to_your_installer.exe
