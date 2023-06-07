@@ -30,6 +30,7 @@
         {
             button1 = new Button();
             label1 = new Label();
+            label2 = new Label();
             SuspendLayout();
             // 
             // button1
@@ -52,11 +53,22 @@
             label1.Text = "Click here for a funny surprise";
             label1.Click += label1_Click;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(314, 132);
+            label2.Name = "label2";
+            label2.Size = new Size(122, 15);
+            label2.TabIndex = 4;
+            label2.Text = "Welcome to the test";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(button1);
             Name = "Form1";
@@ -70,5 +82,6 @@
 
         private Button button1;
         private Label label1;
+        private Label label2;
     }
 }
