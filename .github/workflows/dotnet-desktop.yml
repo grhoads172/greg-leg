@@ -76,12 +76,14 @@ jobs:
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v1.0.2
+      
+    #Change the working directory to the correct path
+    - name: Change to test project directory
+      run: cd Tests/the_tester
 
     # Execute all unit tests in the solution
     - name: Execute unit test
-      run:
-        cd Tests/the_tester
-        dotnet test
+      run: dotnet test
 
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Restore the application
