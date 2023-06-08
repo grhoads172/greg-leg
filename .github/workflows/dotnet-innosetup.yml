@@ -6,83 +6,62 @@ on:
   pull_request:
     branches: [ "main" ]
 
-
 env:
-      Solution_Name: Tests/Tests.sln                             
-      Test_Project_Path: Tests/the_tester/the_tester.csproj 
-      INNOSETUP_SCRIPT: "C:/Users/rhoadg/Documents/GitHub/greg-leg/setup.iss"  
-      OUTPUT_DIR: "C:/Users/rhoadg/Downloads"  
-        
+  Solution_Name: Tests/Tests.sln
+  Test_Project_Path: Tests/the_tester/the_tester.csproj
+  INNOSETUP_SCRIPT: "C:/Users/rhoadg/Documents/GitHub/greg-leg/setup.iss"
+  OUTPUT_DIR: "C:/Users/rhoadg/Downloads"
 
 jobs:
-
   build:
-
     strategy:
       matrix:
         configuration: [Debug, Release]
 
-    runs-on: windows-latest  
-    
+    runs-on: windows-latest
+
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
-    # Install the .NET Core workload
-    - name: Install .NET Core
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: 6.0.x
+      # Install the .NET Core workload
+      - name: Install .NET Core
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 6.0.x
 
-    # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
-    - name: Setup MSBuild.exe
-      uses: microsoft/setup-msbuild@v1.0.2
-      
-    #Change the working directory to the correct path
-    - name: Change to test project directory
-      run: cd Tests/the_tester
-      
-    # Restore the application to populate the obj folder with RuntimeIdentifiers
-    - name: Restore the application
-      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
-      env:
-        Configuration: ${{ matrix.configuration }}
+      # Add MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
+      - name: Setup MSBuild.exe
+        uses: microsoft/setup-msbuild@v1.0.2
 
-    # Execute all unit tests in the solution
-    - name: Execute unit test
-      run: dotnet test --configuration ${{ matrix.configuration }} $env:Test_Project_Path
-      
-    #- name: Build application
-    #  run: msbuild $env:Solution_Name /t:Build /p:Configuration=Release
-    #  env:
-    #    Solution_Name: ${{ env.Solution_Name }}
-        
-    #- name: Sign application
-    #  run:
-    #  env:
-    #    SIGN_CERTIFICATE = "YOUR_CERTIFICATE_SUBJECT_NAME"  
-    #    SIGN_TIMESTAMP_SERVER = "http://timestamp.digicert.com"  
-    
-    # Replace the path with the location of signtool.exe on your machine
-    #& "C:\path\to\signtool.exe" sign /f "C:\path\to\your_certificate.pfx" /p "YOUR_CERTIFICATE_PASSWORD" /t $env:SIGN_TIMESTAMP_SERVER /v "path\to\your\app.exe"
-    #env:
-    # SIGN_CERTIFICATE: ${{ secrets.SIGN_CERTIFICATE }}
-    # SIGN_TIMESTAMP_SERVER: ${{ secrets.SIGN_TIMESTAMP_SERVER }}
-   
-    - name: Upload Inno Setup files
-      uses: actions/upload-artifact@v2
-      with:
-        name: innosetup-files
-        path: "C:/Program Files (x86)/Inno Setup 6/ISCC.exe"
+      # Change the working directory to the correct path
+      - name: Change to test project directory
+        run: cd Tests/the_tester
 
-    - name: Download Inno Setup files
-      uses: actions/download-artifact@v2
-      with:
-        name: innosetup-files
+      # Restore the application to populate the obj folder with RuntimeIdentifiers
+      - name: Restore the application
+        run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
+        env:
+          Configuration: ${{ matrix.configuration }}
+
+      # Execute all unit tests in the solution
+      - name: Execute unit test
+        run: dotnet test --configuration ${{ matrix.configuration }} $env:Test_Project_Path
+
+      - name: Upload Inno Setup files
+        uses: actions/upload-artifact@v2
+        with:
+          name: innosetup-files
+          path: "C:/Program Files (x86)/Inno Setup 6/ISCC.exe"
+
+      - name: Download Inno Setup files
+        uses: actions/download-artifact@v2
+        with:
+          name: innosetup-files
       
-    # Run through the innosetup process by calling the script file
-    - name: Build Setup File
-      run: "C:/Program Files (x86)/Inno Setup 6/ISCC.exe" /Q $env:INNOSETUP_SCRIPT /O$env:OUTPUT_DIR
-      
+      # Run through the innosetup process by calling the script file
+      - name: Build Setup File
+        run: |
+          "C:/Program Files (x86)/Inno Setup 6/ISCC.exe" /Q $env:INNOSETUP_SCRIPT /O$env:OUTPUT_DIR
