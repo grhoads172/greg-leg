@@ -52,21 +52,27 @@ jobs:
     - name: Execute unit test
       run: dotnet test --configuration ${{ matrix.configuration }} $env:Test_Project_Path 
        
-    - name: Upload Inno Setup files
-      uses: actions/upload-artifact@v2
-      with:
-        name: innosetup-files
-        path: "C:/Program Files (x86)/Inno Setup 6/ISCC.exe"
+    - name: Build and Publish
+      run: dotnet publish --configuration Release --output ${{ github.workspace }}/publish
 
-    - name: Download Inno Setup files
-      uses: actions/download-artifact@v2
-      with:
-        name: innosetup-files
-          
-    - name: Build Setup File
-      shell: pwsh
+    - name: Run PowerShell script
+      shell: powershell
       run: |
-        $isccPath = "C:/Program Files (x86)/Inno Setup 6/ISCC.exe"
-        $scriptPath = $env:INNOSETUP_SCRIPT
-        $outputDir = $env:OUTPUT_DIR
-        & $isccPath "/Q" $scriptPath "/O$outputDir"
+        Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+        $directPath = "$($env:GITHUB_WORKSPACE)"
+        $mainExecutable = "$directPath/Tests/the_tester/bin/Release/net6.0-windows/the_tester.exe"
+        $version = "1.0"
+
+        &"C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe" "$directPath/Tests/Tests.sln" /property:Configuration=Release /p:Version=$version
+
+        &"C:\Program Files (x86)\Inno Setup 6\ISCC.exe" "$directPath/test-setup.iss"
+
+        if (Test-Path "C:\Temp\Projects/the_tester/Installer/$version") {
+            Write-Host "Folder Exists - Not Creating it"
+        }
+        else {
+            New-Item -Path "C:\Temp\Projects/the_tester/Installer/$version" -ItemType directory
+        }
+
+        Copy-Item $mainExecutable -Destination "C:\Temp\Projects/the_tester/Installer/$version/the_tester.exe"
+      working-directory: ${{ github.workspace }}
