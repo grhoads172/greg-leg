@@ -59,7 +59,6 @@ jobs:
     - name: Run PowerShell script
       shell: powershell
       run: |
-        Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
         $directPath = "$($env:GITHUB_WORKSPACE)"
         $mainExecutable = "$directPath/Tests/the_tester/bin/Release/net6.0-windows/the_tester.exe"
         $version = "1.0"
