@@ -2,9 +2,9 @@
 
 on:
   push:
-    branches: [main]
+    branches: ["main"]
   pull_request:
-    branches: [main]
+    branches: ["main"]
 
 env:
   Solution_Name: Tests/Tests.sln
