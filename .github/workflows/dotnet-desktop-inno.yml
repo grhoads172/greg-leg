@@ -65,4 +65,8 @@ jobs:
           
     - name: Build Setup File
       shell: pwsh
-      run: '"C:/Program Files (x86)/Inno Setup 6/ISCC.exe" /Q $env:INNOSETUP_SCRIPT /O$env:OUTPUT_DIR'
+      run: |
+        $isccPath = "C:/Program Files (x86)/Inno Setup 6/ISCC.exe"
+        $scriptPath = $env:INNOSETUP_SCRIPT
+        $outputDir = $env:OUTPUT_DIR
+        & $isccPath "/Q" $scriptPath "/O$outputDir"
