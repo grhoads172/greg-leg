@@ -68,12 +68,12 @@ jobs:
 
         &"C:\Program Files (x86)\Inno Setup 6\ISCC.exe" "$directPath/test-setup.iss"
 
-        if (Test-Path "C:\Temp\Projects/the_tester/Installer/$version") {
+        if (Test-Path "C:\Users\rhoadg\Documents\GitHub\greg-leg/Installer/$version") {
             Write-Host "Folder Exists - Not Creating it"
         }
         else {
-            New-Item -Path "C:\Temp\Projects/the_tester/Installer/$version" -ItemType directory
+            New-Item -Path "C:\Users\rhoadg\Documents\GitHub\greg-leg/Installer/$version" -ItemType directory
         }
 
-        Copy-Item $mainExecutable -Destination "C:\Temp\Projects/the_tester/Installer/$version/the_tester.exe"
+        Copy-Item $mainExecutable -Destination "C:\Users\rhoadg\Documents\GitHub\greg-leg/Installer/$version/the_tester.exe"
       working-directory: ${{ github.workspace }}
