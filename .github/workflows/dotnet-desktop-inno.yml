@@ -65,7 +65,7 @@ jobs:
           path: "C:/Program Files (x86)/Inno Setup 6/ISCC.exe"
           
     - name: Build Setup File
-      run: "C:/Program Files (x86)/Inno Setup 6/ISCC.exe" /Q $env:INNOSETUP_SCRIPT /O$env:OUTPUT_DIR
+      run: $"C:/Program Files (x86)/Inno Setup 6/ISCC.exe" /Q $env:INNOSETUP_SCRIPT /O$env:OUTPUT_DIR
       shell: pwsh
       env:
         Solution_Name: Tests/Tests.sln
