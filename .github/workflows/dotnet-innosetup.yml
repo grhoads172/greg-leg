@@ -70,15 +70,9 @@ jobs:
       
     # Run through the innosetup process by calling the script file
     - name: Build Setup File
-      run: 
+      run: & $env:INNOSETUP_EXE /Q $env:INNOSETUP_SCRIPT /O$env:OUTPUT_DIR
       env:
         INNOSETUP_EXE = "${{ env.InnoSetup_Path }}"
         INNOSETUP_SCRIPT = "C:\Users\rhoadg\Documents\GitHub\greg-leg\setup.iss"  
         OUTPUT_DIR = "C:\Users\rhoadg\Downloads"  
         
-        & $env:INNOSETUP_EXE /Q $env:INNOSETUP_SCRIPT /O$env:OUTPUT_DIR
-
-      env:
-        INNOSETUP_PATH: ${{ env.InnoSetup_Path }}
-
-    
