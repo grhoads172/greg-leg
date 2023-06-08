@@ -50,9 +50,8 @@ jobs:
 
     # Execute all unit tests in the solution
     - name: Execute unit test
-      run: dotnet test --configuration ${{ matrix.configuration }} $env:Test_Project_Path
-      working-directory: Tests/the_tester
-
+      run: dotnet test --configuration ${{ matrix.configuration }} $env:Test_Project_Path 
+       
     - name: Upload Inno Setup files
       uses: actions/upload-artifact@v2
       with:
