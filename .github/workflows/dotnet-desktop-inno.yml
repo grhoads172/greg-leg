@@ -55,13 +55,13 @@ jobs:
     - name: Upload Inno Setup files
       uses: actions/upload-artifact@v2
       with:
-          name: innosetup-files
-          path: "C:/Program Files (x86)/Inno Setup 6/ISCC.exe"
+        name: innosetup-files
+        path: "C:/Program Files (x86)/Inno Setup 6/ISCC.exe"
 
     - name: Download Inno Setup files
       uses: actions/download-artifact@v2
       with:
-          name: innosetup-files
+        name: innosetup-files
           
     - name: Build Setup File
       shell: pwsh
