@@ -63,10 +63,10 @@ jobs:
     #    SIGN_TIMESTAMP_SERVER = "http://timestamp.digicert.com"  
     
     # Replace the path with the location of signtool.exe on your machine
-    & "C:\path\to\signtool.exe" sign /f "C:\path\to\your_certificate.pfx" /p "YOUR_CERTIFICATE_PASSWORD" /t $env:SIGN_TIMESTAMP_SERVER /v "path\to\your\app.exe"
-  env:
-    SIGN_CERTIFICATE: ${{ secrets.SIGN_CERTIFICATE }}
-    SIGN_TIMESTAMP_SERVER: ${{ secrets.SIGN_TIMESTAMP_SERVER }}
+    #& "C:\path\to\signtool.exe" sign /f "C:\path\to\your_certificate.pfx" /p "YOUR_CERTIFICATE_PASSWORD" /t $env:SIGN_TIMESTAMP_SERVER /v "path\to\your\app.exe"
+  #env:
+   # SIGN_CERTIFICATE: ${{ secrets.SIGN_CERTIFICATE }}
+   # SIGN_TIMESTAMP_SERVER: ${{ secrets.SIGN_TIMESTAMP_SERVER }}
       
     # Run through the innosetup process by calling the script file
     - name: Build Setup File
