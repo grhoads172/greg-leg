@@ -9,7 +9,10 @@ on:
 
 env:
       Solution_Name: Tests/Tests.sln                             
-      Test_Project_Path: Tests/the_tester/the_tester.csproj      
+      Test_Project_Path: Tests/the_tester/the_tester.csproj 
+      INNOSETUP_SCRIPT: "C:\Users\rhoadg\Documents\GitHub\greg-leg\setup.iss"  
+      OUTPUT_DIR: "C:\Users\rhoadg\Downloads"  
+        
 
 jobs:
 
@@ -67,12 +70,19 @@ jobs:
   #env:
    # SIGN_CERTIFICATE: ${{ secrets.SIGN_CERTIFICATE }}
    # SIGN_TIMESTAMP_SERVER: ${{ secrets.SIGN_TIMESTAMP_SERVER }}
+   
+   - name: Upload Inno Setup files
+        uses: actions/upload-artifact@v2
+        with:
+          name: innosetup-files
+          path: "C:\Program Files (x86)\Inno Setup 6\ISCC.exe"
+
+      - name: Download Inno Setup files
+        uses: actions/download-artifact@v2
+        with:
+          name: innosetup-files
       
     # Run through the innosetup process by calling the script file
     - name: Build Setup File
-      run: & $env:INNOSETUP_EXE /Q $env:INNOSETUP_SCRIPT /O$env:OUTPUT_DIR
-      env:
-        INNOSETUP_EXE = "${{ env.InnoSetup_Path }}"
-        INNOSETUP_SCRIPT = "C:\Users\rhoadg\Documents\GitHub\greg-leg\setup.iss"  
-        OUTPUT_DIR = "C:\Users\rhoadg\Downloads"  
-        
+      run: \InnoSetup\ISCC.exe /Q $env:INNOSETUP_SCRIPT /O$env:OUTPUT_DIR
+      
