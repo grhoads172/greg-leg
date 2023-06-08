@@ -54,6 +54,7 @@ jobs:
        
     - name: Build and Publish
       run: dotnet publish --configuration Release --output ${{ github.workspace }}/publish
+      working-directory: Tests/the_tester
 
     - name: Run PowerShell script
       shell: powershell
