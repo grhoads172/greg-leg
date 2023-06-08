@@ -11,15 +11,15 @@ AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
-OutputDir={env:OUTPUT_DIR}
+OutputDir=C:\Users\rhoadg\Downloads
 OutputBaseFilename=Setup
-SetupIconFile=AppIcon.ico
 
 [Files]
-Source: "{#MyAppExeName}"; DestDir: "{app}"
+Source: "C:\Users\rhoadg\Documents\GitHub\greg-leg\Tests\the_tester\bin\Release\net6.0-windows\{#MyAppExeName}"; DestDir: "{app}"
 
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Description: "{#MyAppName}"; Flags: nowait postinstall
+
