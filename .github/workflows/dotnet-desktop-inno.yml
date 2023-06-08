@@ -19,7 +19,7 @@ jobs:
     env:
       Solution_Name: Tests/Tests.sln
       Test_Project_Path: Tests/the_tester/the_tester.csproj
-      INNOSETUP_SCRIPT: "C:/Users/rhoadg/Documents/GitHub/greg-leg/setup.iss"
+      INNOSETUP_SCRIPT: "C:/Users/rhoadg/Documents/GitHub/greg-leg/test-setup.iss"
       OUTPUT_DIR: "C:/Users/rhoadg/Downloads"
 
     steps:
