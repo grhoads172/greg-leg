@@ -12,7 +12,7 @@ AppVersion={#MyAppVersion}
 DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 OutputDir=C:\Users\rhoadg\Downloads
-OutputBaseFilename=Setup
+OutputBaseFilename=the-tester-app
 
 [Files]
 Source: "C:\Users\rhoadg\Documents\GitHub\greg-leg\Tests\the_tester\bin\Release\net6.0-windows\{#MyAppExeName}"; DestDir: "{app}"
