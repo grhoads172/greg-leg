@@ -65,6 +65,14 @@ jobs:
       
     # Run through the innosetup process by calling the script file
     - name: Build Setup File
-      run: $"C:/Program Files (x86)/Inno Setup 6/ISCC.exe" /Q $env:INNOSETUP_SCRIPT /O$env:OUTPUT_DIR
-
+    - name: Build Setup File
+      run: |
+        "C:/Program Files (x86)/Inno Setup 6/ISCC.exe" /Q $env:INNOSETUP_SCRIPT /O$env:OUTPUT_DIR
+      shell: pwsh
+      env:
+        Solution_Name: Tests/Tests.sln
+        Test_Project_Path: Tests/the_tester/the_tester.csproj
+        INNOSETUP_SCRIPT: C:/Users/rhoadg/Documents/GitHub/greg-leg/setup.iss
+        OUTPUT_DIR: C:/Users/rhoadg/Downloads
+        DOTNET_ROOT: C:\Program Files\dotnet
     
