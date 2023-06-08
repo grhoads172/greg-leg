@@ -35,22 +35,22 @@
             // 
             // button1
             // 
-            button1.Location = new Point(314, 217);
+            button1.Location = new Point(297, 216);
             button1.Name = "button1";
-            button1.Size = new Size(122, 23);
+            button1.Size = new Size(150, 23);
             button1.TabIndex = 0;
-            button1.Text = "Funny Button";
+            button1.Text = "Take me to the page!";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(297, 178);
+            label1.Location = new Point(297, 176);
             label1.Name = "label1";
-            label1.Size = new Size(164, 15);
+            label1.Size = new Size(167, 15);
             label1.TabIndex = 3;
-            label1.Text = "Click here for a funny surprise";
+            label1.Text = "Click here for the second page";
             label1.Click += label1_Click;
             // 
             // label2
