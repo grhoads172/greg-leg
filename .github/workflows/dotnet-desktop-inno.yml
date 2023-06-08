@@ -65,7 +65,6 @@ jobs:
       
     # Run through the innosetup process by calling the script file
     - name: Build Setup File
-    - name: Build Setup File
       run: $"C:/Program Files (x86)/Inno Setup 6/ISCC.exe" /Q $env:INNOSETUP_SCRIPT /O$env:OUTPUT_DIR
       shell: pwsh
       env:
