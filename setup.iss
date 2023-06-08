@@ -3,7 +3,7 @@
 
 #define MyAppName "Cat Test App"
 #define MyAppVersion "1.0"
-#define MyAppExeName "CatTestApp.exe"
+#define MyAppExeName "the_tester.exe"
 
 [Setup]
 ; Application Information
