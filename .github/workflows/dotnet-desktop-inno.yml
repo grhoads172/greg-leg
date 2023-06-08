@@ -61,8 +61,9 @@ jobs:
     - name: Download Inno Setup files
       uses: actions/download-artifact@v2
       with:
-        name: innosetup-files
-      
+          name: innosetup-files
+          path: "C:/Program Files (x86)/Inno Setup 6/ISCC.exe"
+          
     - name: Build Setup File
       run: "C:/Program Files (x86)/Inno Setup 6/ISCC.exe" /Q $env:INNOSETUP_SCRIPT /O$env:OUTPUT_DIR
       shell: pwsh
