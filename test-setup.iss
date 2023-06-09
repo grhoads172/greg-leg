@@ -1,5 +1,5 @@
 
-#define MyAppName "Cat Test App"
+#define MyAppName "Test_App"
 #define MyAppVersion "1.0"
 #define MyAppExeName "the_tester.exe"
 
