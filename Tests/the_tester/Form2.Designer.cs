@@ -49,7 +49,6 @@
             label2.Size = new Size(161, 15);
             label2.TabIndex = 1;
             label2.Text = "Welcome to the second page";
-            label2.Click += label2_Click;
             // 
             // Form2
             // 
@@ -60,7 +59,6 @@
             Controls.Add(label1);
             Name = "Form2";
             Text = "Form2";
-            Load += Form2_Load;
             ResumeLayout(false);
             PerformLayout();
         }

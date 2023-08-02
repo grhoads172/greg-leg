@@ -64,7 +64,7 @@ jobs:
       shell: powershell
       run: |
         $directPath = "C:\Users\rhoadg\Documents\GitHub\greg-leg"
-        $mainExecutable = "C:/Users/rhoadg/Documents/GitHub/greg-leg/Tests/the_tester/bin/Release/net6.0-windows/the_tester"
+        $mainExecutable = "C:/Users/rhoadg/Documents/GitHub/greg-leg/Tests/the_tester/bin/Release/net6.0-windows/the_tester.exe"
         $version = "1.0"
 
         & " C:/Windows/Microsoft.NET/Framework64/v4.0.30319/MSBuild" "C:/Users/rhoadg/Documents/GitHub/greg-leg/Tests/Tests.sln" /property:Configuration=Release /p:Version=$version
@@ -78,5 +78,5 @@ jobs:
             New-Item -Path "C:\Users\rhoadg\Documents\GitHub\greg-leg/Installer/$version" -ItemType directory
         }
 
-        Copy-Item $mainExecutable -Destination "C:\Users\rhoadg\Documents\GitHub\greg-leg/Installer/$version/the_tester"
+        Copy-Item $mainExecutable -Destination "C:\Users\rhoadg\Documents\GitHub\greg-leg/Installer/$version/the_tester.exe"
       working-directory: ${{ github.workspace }} 
