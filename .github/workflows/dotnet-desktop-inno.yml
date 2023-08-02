@@ -38,6 +38,10 @@ jobs:
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v1.0.2
 
+    #Debug PATH
+    - name: Debug PATH
+      run: echo $PATH
+
     # Change the working directory to the correct path
     - name: Change to test project directory
       run: cd Tests/the_tester
