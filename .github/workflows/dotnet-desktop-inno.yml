@@ -20,7 +20,7 @@ jobs:
       Solution_Name: Tests/Tests.sln
       Test_Project_Path: Tests/the_tester/the_tester.csproj
       INNOSETUP_SCRIPT: "C:/Users/rhoadg/Documents/GitHub/greg-leg/test-setup.iss"
-      OUTPUT_DIR: "C:/Users/rhoadg/Downloads"
+      OUTPUT_DIR: "C:/Users/rhoadg/Documents/GitHub/greg-leg"
 
     steps:
     - name: Checkout
@@ -63,7 +63,7 @@ jobs:
         $mainExecutable = "C:/Users/rhoadg/Documents/GitHub/greg-leg/Tests/the_tester/bin/Release/net6.0-windows/the_tester.exe"
         $version = "1.0"
 
-        &"C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe" "C:/Users/rhoadg/Documents/GitHub/greg-leg/Tests/Tests.sln" /property:Configuration=Release /p:Version=$version
+        &"C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild" "C:/Users/rhoadg/Documents/GitHub/greg-leg/Tests/Tests.sln" /property:Configuration=Release /p:Version=$version
 
         &"C:\Program Files (x86)\Inno Setup 6\ISCC.exe" "C:/Users/rhoadg/Documents/GitHub/greg-leg/test-setup.iss"
 
@@ -75,4 +75,4 @@ jobs:
         }
 
         Copy-Item $mainExecutable -Destination "C:\Users\rhoadg\Documents\GitHub\greg-leg/Installer/$version/the_tester.exe"
-      working-directory: ${{ github.workspace }}
+      working-directory: ${{ github.workspace }} 
