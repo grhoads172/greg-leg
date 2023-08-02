@@ -1,8 +1,11 @@
-$directPath = "$($env:GITHUB_WORKSPACE)"
+$directPath = "C:\Users\rhoadg\Documents\GitHub\greg-leg"
 $mainExecutable = "$directPath/Tests/the_tester/bin/Release/net6.0-windows/the_tester.exe"
 $version = "1.0"
 
-&"C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe" "$directPath/Tests/Tests.sln" /property:Configuration=Release /p:Version=$version
+&"C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild" "$directPath/Tests/Tests.sln" /property:Configuration=Release /p:Version=$version
+
+Write-Host "Direct Path: $directPath"
+
 
 &"C:\Program Files (x86)\Inno Setup 6\ISCC.exe" "$directPath/test-setup.iss"
 
