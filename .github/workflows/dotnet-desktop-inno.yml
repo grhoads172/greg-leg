@@ -78,5 +78,5 @@ jobs:
             New-Item -Path "C:\Users\rhoadg\Documents\GitHub\greg-leg/Installer/$version" -ItemType directory
         }
 
-        Copy-Item $mainExecutable -Destination "C:\Users\rhoadg\Documents\GitHub\greg-leg/Installer/$version/the_tester.exe"
+        Copy-Item $mainExecutable -Destination "C:\Users\rhoadg\Documents\GitHub\greg-leg/Installer/$version/the_tester"
       working-directory: ${{ github.workspace }} 
