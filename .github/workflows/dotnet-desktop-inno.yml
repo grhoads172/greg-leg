@@ -63,24 +63,5 @@ jobs:
     - name: Run PowerShell script
       shell: powershell
       run: |
-        $directPath = "C:\Users\rhoadg\Documents\GitHub\greg-leg"
-        $mainExecutable = "C:\Users\rhoadg\Documents\GitHub\greg-leg\Tests\the_tester\bin\Release\net6.0-windows\the_tester.exe"
-        $version = "1.0"
-
-        $solutionPath = Join-Path -Path $directPath -ChildPath "Tests\Tests.sln"
-        $innoSetupExe = "C:\Program Files (x86)\Inno Setup 6\ISCC.exe"
-        $outputFolder = Join-Path -Path $directPath -ChildPath "Installer\$version"
-        $destinationPath = Join-Path -Path $outputFolder -ChildPath "the_tester.exe"
-
-        & "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild" $solutionPath /property:Configuration=Release /p:Version=$version
-
-        & $innoSetupExe "$directPath\test-setup.iss"
-
-        if (Test-Path $outputFolder) {
-            Write-Host "Folder Exists - Not Creating it"
-        }
-        else {
-            New-Item -Path $outputFolder -ItemType directory
-        }
-
-        Copy-Item $mainExecutable -Destination $destinationPath
+        .\the-testerScript.ps1
+      working-directory: $OUTPUT_DIR
