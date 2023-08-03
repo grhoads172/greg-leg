@@ -60,9 +60,12 @@ jobs:
       run: dotnet publish --configuration Release --output ${{ github.workspace }}/publish
       working-directory: Tests/the_tester
 
+
     - name: Run PowerShell script
       shell: powershell
-      run: .\the-testerScript.ps1 -Task ModuleBuild
+      run: |
+        $Env:Path += ";C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin"
+        .\the-testerScript.ps1 -Task ModuleBuild
       working-directory: ${{ github.workspace }}
       
       
