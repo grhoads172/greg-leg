@@ -65,8 +65,6 @@ jobs:
       shell: powershell
       run: |
         .\the-testerScript.ps1
-      working-directory: C:/Users/rhoadg/Documents/GitHub/greg-leg
-
     
       
       
