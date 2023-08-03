@@ -60,14 +60,12 @@ jobs:
       run: dotnet publish --configuration Release --output ${{ github.workspace }}/publish
       working-directory: Tests/the_tester
 
-    #Debug Powershell
-    - name: Debug working-directory
-      run: echo $working-directory
-
+    
     - name: Run PowerShell script
       shell: powershell
       run: |
         .\the-testerScript.ps1
+      working-directory: C:/Users/rhoadg/Documents/GitHub/greg-leg
 
     
       
