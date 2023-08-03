@@ -64,7 +64,33 @@ jobs:
     - name: Run PowerShell script
       shell: powershell
       run: |
-        .\the-testerScript.ps1
+        $msBuildBinPath = "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin"
+        $msBuildExecutable = Join-Path -Path $msBuildBinPath -ChildPath "MSBuild.exe"
+        $directPath = "C:\Users\rhoadg\Documents\GitHub\greg-leg"
+        $mainExecutable = "C:\Users\rhoadg\Documents\GitHub\greg-leg\Tests\the_tester\bin\Release\net6.0-windows\the_tester.exe"
+        $version = "1.0"
     
+        $solutionPath = Join-Path -Path $directPath -ChildPath "Tests\Tests.sln"
+        $innoSetupExe = "C:\Program Files (x86)\Inno Setup 6\ISCC.exe"
+        $outputFolder = Join-Path -Path $directPath -ChildPath "Installer\$version"
+        $destinationPath = Join-Path -Path $outputFolder -ChildPath "the_tester.exe"
+
+        # Run MSBuild with the specified path
+        & $msBuildExecutable $solutionPath /property:Configuration=Release /p:Version=$version
+
+        # Run your external PowerShell script
+        .\Scripts\the-testerScript.ps1
+    
+        # Rest of your script
+
+        if (Test-Path $outputFolder) {
+            Write-Host "Folder Exists - Not Creating it"
+        }
+        else {
+            New-Item -Path $outputFolder -ItemType directory
+        }
+
+        Copy-Item $mainExecutable -Destination $destinationPath
+      working-directory: ${{ github.workspace }}
       
       
