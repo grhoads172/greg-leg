@@ -37,6 +37,8 @@ jobs:
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v1.0.2
+      with:
+        vs-version: '[17.6)'
 
     #Debug PATH
     - name: Debug PATH
@@ -64,7 +66,7 @@ jobs:
     - name: Run PowerShell script
       shell: powershell
       run: |
-        $Env:Path += ";C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin"
+        $Env:Path += '"C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin"'
         .\the-testerScript.ps1 -Task ModuleBuild
       working-directory: ${{ github.workspace }}
       
