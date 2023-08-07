@@ -65,7 +65,7 @@ jobs:
 
     - name: Run PowerShell script
       shell: pwsh
-      run: .\the-testerScript.ps1 
+      run: .\the-testerScript.ps1 -Verbose
       working-directory: ${{ github.workspace }}
       
       
