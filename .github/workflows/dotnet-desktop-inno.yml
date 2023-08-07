@@ -64,7 +64,7 @@ jobs:
       run: Install-Module -Name Invoke-MSBuild -Force -AllowClobber -Scope CurrentUser
 
     - name: Run PowerShell script
-      shell: powershell
+      shell: pwsh
       run: .\the-testerScript.ps1 
       working-directory: ${{ github.workspace }}
       
