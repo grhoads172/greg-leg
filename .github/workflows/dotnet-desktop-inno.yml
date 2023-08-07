@@ -65,7 +65,7 @@ jobs:
 
     - name: Run PowerShell script
       shell: powershell
-      run: /.the-testerScript.ps1 
+      run: .\the-testerScript.ps1 
       working-directory: ${{ github.workspace }}
       
       
