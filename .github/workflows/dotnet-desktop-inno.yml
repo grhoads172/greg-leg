@@ -60,11 +60,15 @@ jobs:
       run: dotnet publish --configuration Release --output ${{ github.workspace }}/publish
       working-directory: Tests/the_tester
 
+    - name: Install Invoke-MSBuild module
+      run: Install-Module -Name Invoke-MSBuild -Force -AllowClobber -Scope CurrentUser
 
     - name: Run PowerShell script
       shell: powershell
       run: |
-        .\the-testerScript.ps1 -Task ModuleBuild
+        $scriptPath = "${{ github.workspace }}/the-testerScript.ps1"
+        Import-Module Invoke-MSBuild
+        Invoke-MSBuild -ScriptFile $scriptPath -Task ModuleBuild
       working-directory: ${{ github.workspace }}
       
       
