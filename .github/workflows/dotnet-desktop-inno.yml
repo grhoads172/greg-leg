@@ -67,7 +67,7 @@ jobs:
       shell: powershell
       run: |
          $scriptPath = "${{ github.workspace }}/the-testerScript.ps1"
-         $modulePath = "C:/Users/rhoadg/Documents/GitHub/greg-leg/Invoke-MSBuild.psm1"
+         $modulePath = "C:/Users/rhoadg/Documents/GitHub/greg-leg/Invoke-MsBuild"
          Import-Module -Name $modulePath
          Invoke-MSBuild -ScriptFile $scriptPath -Task ModuleBuild
       working-directory: ${{ github.workspace }}
