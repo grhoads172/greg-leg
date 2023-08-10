@@ -1,7 +1,7 @@
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 $directPath = "C:/Users/rhoadg/Documents/GitHub/greg-leg"
 $mainExecutable = "$directPath/Tests/the_tester/bin/Release/net6.0-windows/the_tester.exe"
-$version = "1.0"
+$version = "1.1"
 
 &"C:/Program Files/Microsoft Visual Studio/2022/Enterprise/MSBuild/Current/Bin/MSBuild.exe" "$directPath/Tests/the_tester/the_tester.csproj" /property:Configuration=Release /p:Version=$version
 
