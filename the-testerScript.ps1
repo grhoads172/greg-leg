@@ -16,4 +16,4 @@ else
     New-Item -Path "C:/Users/rhoadg/Documents/GitHub/greg-leg/Installer/$version" -ItemType directory
 }
 
-Copy-Item $mainExecutable -Destination "C:/Users/rhoadg/Documents/GitHub/greg-leg/Installer/$version/the_tester.exe"
+Copy-Item $mainExecutable -Destination "$directPath/Installer/$version/the_tester.exe"
