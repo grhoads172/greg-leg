@@ -9,7 +9,7 @@ AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
-OutputDir=C:\Users\rhoadg\Documents\GitHub\greg-leg
+OutputDir= Installer\{#MyAppVersion}
 OutputBaseFilename=the-tester-app
 
 [Files]
