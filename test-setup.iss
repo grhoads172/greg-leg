@@ -1,6 +1,6 @@
 
 #define MyAppName "Test_App"
-#define MyAppVersion "1.0"
+#define MyAppVersion "1.1"
 #define MyAppExeName "the_tester.exe"
 
 [Setup]
@@ -13,7 +13,7 @@ OutputDir=C:\Users\rhoadg\Document\GitHub\greg-leg
 OutputBaseFilename=the-tester-app
 
 [Files]
-Source: "C:\Users\rhoadg\Documents\GitHub\greg-leg\Tests\the_tester\bin\Release\net6.0-windows\{#MyAppExeName}"; DestDir: "{app}"
+Source: "{#MyAppExeName}"; DestDir: "{app}"
 
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
