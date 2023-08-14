@@ -72,5 +72,11 @@ jobs:
       shell: pwsh
       run: .\the-testerScript.ps1 -Verbose
       working-directory: ${{ github.workspace }}
+
+    - name: Save Workspace as Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: updated-repo
+        path: ${{ github.workspace}}
       
       
