@@ -9,11 +9,11 @@ AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
-OutputDir={#GITHUB_WORKSPACE}\Installer
+OutputDir=C:\Users\rhoadg\Document\GitHub\greg-leg
 OutputBaseFilename=the-tester-app
 
 [Files]
-Source: "{#GITHUB_WORKSPACE}\Tests\the_tester\bin\Release\net6.0-windows\{#MyAppExeName}"; DestDir: "{app}"
+Source: "Tests\the_tester\bin\Release\net6.0-windows\{#MyAppExeName}"; DestDir: "{app}"
 
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
