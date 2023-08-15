@@ -73,6 +73,19 @@ jobs:
       run: .\the-testerScript.ps1 -Verbose
       working-directory: ${{ github.workspace }}
 
+    - name: Save Workspace as Backup
+      run: |
+        mkdir backup_folder
+        cp -r ${{ github.workspace }}/publish* backup_folder/
+        git config --global user.name "grhoads172"
+        git config --global user.email "gina.rhoads@devilbisshc.com"
+        git checkout -b backup
+        git add backup_folder/
+        git commit -m "Backup specific folder contents"
+        git push origin backup
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Save Workspace as Artifact
       uses: actions/upload-artifact@v2
       with:
