@@ -72,7 +72,7 @@
             Controls.Add(label1);
             Controls.Add(button1);
             Name = "Form1";
-            Text = "Form1";
+            Text = "The first page";
             Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
